@@ -1,4 +1,4 @@
-DLKM_DIR := motorola/kernel/modules
+DLKM_DIR := $(TARGET_KERNEL_SOURCE)/modules
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
