@@ -1,0 +1,13 @@
+# add -Wall to try to catch everything we can.
+EXTRA_CFLAGS += -Wall
+EXTRA_CFLAGS += -I$(TOP)/motorola/kernel/modules/include
+
+ifneq (,$(filter river%,$(TARGET_PRODUCT)))
+EXTRA_CFLAGS += -DCONFIG_CAPSENSE_USB_CAL
+endif
+
+KBUILD_EXTRA_SYMBOLS += $(CURDIR)/$(KBUILD_EXTMOD)/../../sensors/Module.symvers
+
+sx932x_sar-y := sx933x_sar.o
+
+obj-m += sx933x_sar.o
